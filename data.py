@@ -1,0 +1,93 @@
+school_data = {
+    "school_name": "Gurukul Convent School",
+    "timing": "10:00 AM to 3:00 PM",
+
+    "management": {
+        "director": "Mr. Shailesh Pandey",
+        "principal": "Mrs. Neha Pandey",
+        "vice_principal": "Mr. Ram Jit Yadav",
+        "system_manager": "Mr. Mustkeem Sir"
+    },
+
+    "teachers": {
+        "chemistry": {
+            "name": "Mr. Kuldeep Kumar",
+            "qualification": "B.Sc, M.A, D.El.Ed, B.Ed"
+        },
+        "physics": {
+            "name": "Mr. Manish Mishra"
+        },
+        "biology": {
+            "name": "Mrs. Vibha",
+            "qualification": "M.Sc, B.Ed"
+        },
+        "maths": {
+            "name": "Mr. Manoj Dwivedi",
+            "qualification": "M.Sc, B.Ed"
+        },
+        "english": {
+            "name": "Mr. Mohsin Khan"
+        },
+        "hindi": {
+            "name": "Mrs. Kanchan Shukla"
+        }
+    },
+
+    "class_11": {
+        "fee": "₹2000 per month",
+        "boys": [
+            "Shashi Kapoor", "Prince Bharti", "Raunak Shukla",
+            "Siddharth Srivastav", "Neeraj Kumar", "Aditya Jaiswal",
+            "Anuj Chaubey", "Vicky Agrahari", "Zaid",
+            "Yuvraj Yadav", "Prem Sagar"
+        ],
+        "girls": [
+            "Srushti Tripthi", "Sahista Khatoon", "Ishika Singh",
+            "Khushi Agrahari", "Kritika Agrahari", "Khushi Soni",
+            "Saziya Khatoon", "Sristy Bharti", "Aafrin Khan",
+            "Samayara", "Eram", "Rawan Siddique",
+            "Prasansa", "Janvi Singh", "Aditi"
+        ]
+    },
+
+    "features": [
+        "AC Rooms",
+        "Best Infrastructure",
+        "Best Certified Teachers",
+        "Inter House Competitions",
+        "Science Exhibition",
+        "Sports Facilities"
+    ],
+
+    "houses": ["Yellow House", "Red House", "Blue House", "Green House"],
+
+    "sports": [
+        "Cricket (Boys & Girls)",
+        "Kho-Kho (Boys & Girls)",
+        "Chess (Boys & Girls)",
+        "Carrom (Boys & Girls)",
+        "Shuttle Race (Boys & Girls)",
+        "Badminton (Boys & Girls)",
+        "Volleyball (Boys)",
+        "Hit the Stump (Girls)",
+        "Long Jump (Boys & Girls)"
+    ],
+
+    "activities": [
+        "Annual Sports Competition",
+        "Debate Competition",
+        "Rangoli Competition",
+        "Science Exhibition",
+        "Dance Competition",
+        "Educational Tour"
+    ],
+
+    "admission_documents": [
+        "Birth Certificate",
+        "Aadhaar Card",
+        "Address Proof",
+        "Passport-size photographs",
+        "Transfer Certificate",
+        "Previous School Report Card"
+    ]
+}
