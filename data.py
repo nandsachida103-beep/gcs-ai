@@ -116,4 +116,11 @@ SCHOOL_INFO = {
     ]
 }
 
-CONTACT 
+CONTACT = {
+    "phone_numbers": [
+        "9838421968",
+        "8317001959",
+        "7518249280"
+    ],
+    "message": "Please contact the school or visit the campus for more information."
+}
