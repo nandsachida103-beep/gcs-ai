@@ -1,68 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Sinoy – GCS AI Helpdesk</title>
-    <style>
-        body {
-            font-family: Arial;
-            background: #0f172a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .chatbox {
-            width: 420px;
-            background: #1e293b;
-            border-radius: 12px;
-            padding: 15px;
-            color: white;
-        }
-        .messages {
-            height: 300px;
-            overflow-y: auto;
-            margin-bottom: 10px;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: none;
-        }
-        button {
-            margin-top: 8px;
-            width: 100%;
-            padding: 10px;
-            border: none;
-            background: #38bdf8;
-            color: black;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-<div class="chatbox">
-    <h3>🤖 Sinoy – GCS AI Helpdesk</h3>
-    <div class="messages" id="messages"></div>
-    <input id="input" placeholder="Ask in Hindi / English / Hinglish">
-    <button onclick="send()">Send</button>
-</div>
-
 <script>
-function send() {
-    let msg = document.getElementById("input").value;
+function sendMessage() {
+    const input = document.getElementById("userInput");
+    const msg = input.value;
+    if (!msg) return;
+
+    document.getElementById("chat").innerHTML += `<p><b>You:</b> ${msg}</p>`;
+    input.value = "";
+
     fetch("/chat", {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({message: msg})
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: msg })
     })
-    .then(r => r.json())
-    .then(d => {
-        document.getElementById("messages").innerHTML +=
-        "<p><b>You:</b> " + msg + "</p><p>" + d.reply + "</p>";
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("chat").innerHTML += `<p><b>${data.reply}</b></p>`;
+    })
+    .catch(err => {
+        document.getElementById("chat").innerHTML += `<p>Error: Server not responding</p>`;
     });
 }
 </script>
-</body>
-</html>
