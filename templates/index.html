@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>GCS AI Helpdesk</title>
+    <title>Sinoy – GCS AI Helpdesk</title>
     <style>
         body {
-            background: #f2f2f2;
             font-family: Arial;
+            background: #0f172a;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -13,77 +13,56 @@
         }
         .chatbox {
             width: 420px;
-            height: 520px;
-            background: white;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-        }
-        .header {
-            padding: 12px;
-            background: #004aad;
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 15px;
             color: white;
-            text-align: center;
-            font-weight: bold;
         }
         .messages {
-            flex: 1;
-            padding: 10px;
+            height: 300px;
             overflow-y: auto;
-            font-size: 14px;
-        }
-        .user { text-align: right; color: #004aad; margin: 6px; }
-        .bot { text-align: left; color: #333; margin: 6px; }
-        .input-box {
-            display: flex;
-            border-top: 1px solid #ddd;
+            margin-bottom: 10px;
         }
         input {
-            flex: 1;
+            width: 100%;
             padding: 10px;
+            border-radius: 8px;
             border: none;
-            outline: none;
         }
         button {
+            margin-top: 8px;
+            width: 100%;
             padding: 10px;
-            background: #004aad;
-            color: white;
             border: none;
+            background: #38bdf8;
+            color: black;
+            border-radius: 8px;
             cursor: pointer;
         }
     </style>
 </head>
 <body>
-
 <div class="chatbox">
-    <div class="header">Gurukul Convent School – AI Helpdesk</div>
+    <h3>🤖 Sinoy – GCS AI Helpdesk</h3>
     <div class="messages" id="messages"></div>
-    <div class="input-box">
-        <input id="msg" placeholder="Ask your question...">
-        <button onclick="send()">Send</button>
-    </div>
+    <input id="input" placeholder="Ask in Hindi / English / Hinglish">
+    <button onclick="send()">Send</button>
 </div>
 
 <script>
 function send() {
-    let msg = document.getElementById("msg").value;
-    if (!msg) return;
-    let m = document.getElementById("messages");
-    m.innerHTML += `<div class="user">${msg}</div>`;
+    let msg = document.getElementById("input").value;
     fetch("/chat", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({message: msg})
     })
-    .then(res => res.json())
-    .then(data => {
-        m.innerHTML += `<div class="bot">${data.reply}</div>`;
-        m.scrollTop = m.scrollHeight;
+    .then(r => r.json())
+    .then(d => {
+        document.getElementById("messages").innerHTML +=
+        "<p><b>You:</b> " + msg + "</p><p>" + d.reply + "</p>";
     });
-    document.getElementById("msg").value = "";
 }
 </script>
-
 </body>
 </html>
