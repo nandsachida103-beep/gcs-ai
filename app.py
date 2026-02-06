@@ -1,60 +1,10 @@
 from flask import Flask, render_template, request, jsonify
-from data import school_data
+from data import data
 
 app = Flask(__name__)
 
-def reply(msg):
-    msg = msg.lower()
-
-    if "school name" in msg:
-        return school_data["school_name"]
-
-    if "time" in msg or "timing" in msg:
-        return school_data["timing"]
-
-    if "director" in msg:
-        return school_data["management"]["director"]
-
-    if "principal" in msg:
-        return school_data["management"]["principal"]
-
-    if "vice" in msg:
-        return school_data["management"]["vice_principal"]
-
-    if "system manager" in msg:
-        return school_data["management"]["system_manager"]
-
-    for subject, info in school_data["teachers"].items():
-        if subject in msg and "teacher" in msg:
-            if isinstance(info, dict):
-                return f"{info['name']} (Qualification: {info['qualification']})"
-            return info["name"]
-
-    if "fee" in msg:
-        return f"Class 11 fee is {school_data['class_11']['fee']}"
-
-    if "boys" in msg:
-        return ", ".join(school_data["class_11"]["boys"])
-
-    if "girls" in msg:
-        return ", ".join(school_data["class_11"]["girls"])
-
-    if "feature" in msg or "facility" in msg:
-        return ", ".join(school_data["features"])
-
-    if "house" in msg:
-        return ", ".join(school_data["houses"])
-
-    if "sport" in msg or "game" in msg:
-        return ", ".join(school_data["sports"])
-
-    if "competition" in msg or "activity" in msg:
-        return ", ".join(school_data["activities"])
-
-    if "admission" in msg or "document" in msg:
-        return ", ".join(school_data["admission_documents"])
-
-    return "Please ask about teachers, fees, timing, admission, sports, or school details."
+def clean(text):
+    return text.lower().strip()
 
 @app.route("/")
 def home():
@@ -62,8 +12,87 @@ def home():
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    user_msg = request.json["message"]
-    return jsonify({"reply": reply(user_msg)})
+    msg = clean(request.json.get("message", ""))
+    reply = None
+
+    # ---- SCHOOL BASIC ----
+    if "school name" in msg or "नाम" in msg:
+        reply = data["school_details"]["name"]
+
+    elif "timing" in msg or "time" in msg or "समय" in msg:
+        reply = data["school_details"]["general_timing"]
+
+    # ---- MANAGEMENT ----
+    elif "principal" in msg or "प्रधानाचार्य" in msg:
+        reply = data["management"]["principal"]
+
+    elif "vice principal" in msg or "vice-principal" in msg:
+        reply = data["management"]["vice_principal"]
+
+    elif "director" in msg or "निर्देशक" in msg:
+        reply = data["management"]["director"]
+
+    elif "system manager" in msg:
+        reply = data["management"]["system_manager"]
+
+    # ---- MOTTO / VISION / MISSION ----
+    elif "motto" in msg or "aim" in msg or "उद्देश्य" in msg:
+        reply = data["vision_mission"]["motto"]
+
+    elif "mission" in msg:
+        reply = ", ".join(data["vision_mission"]["mission"])
+
+    elif "vision" in msg:
+        reply = data["vision_mission"]["vision"]
+
+    # ---- TEACHERS ----
+    elif "chemistry teacher" in msg:
+        reply = "Mr. Kuldeep Kumar"
+
+    elif "biology teacher" in msg:
+        reply = "Mrs. Vibha Ma’am"
+
+    elif "physics teacher" in msg:
+        reply = "Mr. Manish Mishra"
+
+    elif "math teacher" in msg or "maths teacher" in msg:
+        reply = "Mr. Manoj Dwivedi"
+
+    elif "english teacher" in msg:
+        reply = "Mr. Mohsin Khan"
+
+    elif "hindi teacher" in msg:
+        reply = "Mrs. Kanchan Shukla"
+
+    elif "senior teacher" in msg:
+        reply = "Kuldeep Sir, Vibha Ma’am, Manoj Sir, Manish Sir, Mohsin Sir, Kanchan Ma’am"
+
+    # ---- EXAMS & EVENTS ----
+    elif "final exam" in msg:
+        reply = "Final exams start from the 1st week of March"
+
+    elif "science exhibition" in msg:
+        reply = "Science Exhibition is on 7 February 2026"
+
+    # ---- SPORTS ----
+    elif "best cricket" in msg or "best volleyball" in msg or "best player" in msg:
+        reply = "Raj Kapoor"
+
+    # ---- FOUNDERS ----
+    elif "founder" in msg:
+        reply = "Shashi Kapoor and Prince Bharti"
+
+    # ---- FALLBACK ----
+    if reply:
+        return jsonify({"reply": f"Sinoy: {reply}"})
+
+    return jsonify({
+        "reply": (
+            "Sinoy: Is question ka answer mere paas available nahi hai. "
+            "Please contact school on 9838421968, 8317001959, 7518249280 "
+            "ya directly school visit karein."
+        )
+    })
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
