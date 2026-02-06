@@ -1,126 +1,77 @@
-SCHOOL_INFO = {
-    "school_name": "Gurukul Convent School",
-    "type": "Co-educational",
-    "board": "CBSE pattern, NCERT-based syllabus",
-    "established": "2005",
-    "max_students": "40 students per class",
-    "total_teachers": "40+ teachers",
+SCHOOL_DATA = {
+    # BASIC DETAILS
+    "school name": "Gurukul Convent School.",
+    "type": "The school is co-educational.",
+    "board": "The school follows CBSE pattern with NCERT-based syllabus.",
+    "established": "The school was established in the year 2005.",
+    "maximum students": "Maximum 40 students are allowed in each class.",
+    "total teachers": "There are more than 40 teachers in the school.",
+    "school timing": "General school timing is 10 AM to 3 PM.",
 
-    "timings": {
-        "general": "10:00 AM – 3:00 PM",
-        "nursery": "8:00 AM – 12:00 PM",
-        "class_1_12": "9:30 AM – 2:00 PM"
-    },
+    # SECTION TIMING
+    "nursery timing": "Nursery to UKG timing is 8:00 AM to 12:00 PM.",
+    "ukg timing": "Nursery to UKG timing is 8:00 AM to 12:00 PM.",
+    "class timing": "Class 1 to 12 timing is 9:30 AM to 2:00 PM.",
 
-    "management": {
-        "director": "Mr. Shailesh Pandey",
-        "principal": "Mrs. Neha Pandey",
-        "vice_principal": "Mr. Ram Jit Yadav",
-        "system_manager": "Mr. Mustkeem Sir"
-    },
+    # MANAGEMENT
+    "director": "Name of the director is Mr. Shailesh Pandey.",
+    "principal": "Name of the principal is Mrs. Neha Pandey.",
+    "vice principal": "Name of the vice principal is Mr. Ram Jit Yadav.",
+    "system manager": "System manager of the school is Mr. Mustkeem Sir.",
 
-    "motto": "Holistic Education, Diverse Learning",
+    # MOTTO / VISION / MISSION
+    "motto": "The school motto is Holistic Education, Diverse Learning.",
+    "mission": "The mission includes moral values, discipline, leadership development and life skills.",
+    "vision": "The vision is to bring out the best in every student through holistic education.",
 
-    "mission": [
-        "Diverse learning strategies",
-        "Moral values and discipline",
-        "Leadership development",
-        "Life skills and personality building"
-    ],
+    # SENIOR TEACHERS
+    "chemistry teacher": "Chemistry teacher is Mr. Kuldeep Kumar. Qualification: B.Sc, M.A, D.El.Ed, B.Ed.",
+    "biology teacher": "Biology teacher is Mrs. Vibha Ma’am. Qualification: M.Sc, B.Ed.",
+    "maths teacher": "Mathematics teacher is Mr. Manoj Dwivedi. Qualification: M.Sc, B.Ed.",
+    "physics teacher": "Physics teacher is Mr. Manish Mishra. Qualification: B.Sc Biotechnology.",
+    "english teacher": "English teacher is Mr. Mohsin Khan.",
+    "hindi teacher": "Hindi teacher is Mrs. Kanchan Shukla.",
 
-    "vision": "To bring out the best in every student through holistic education",
+    # CLASS 11 FEES
+    "class 11 fee": "Class 11 school fee is ₹2000 per month and coaching fee is ₹2000 per month.",
+    "fees": "School fee is ₹2000 per month and coaching fee is ₹2000 per month.",
 
-    "senior_teachers": {
-        "Kuldeep Kumar": "Chemistry – B.Sc, M.A, D.El.Ed, B.Ed (Head of Science Exhibition)",
-        "Vibha Maam": "Biology – M.Sc, B.Ed",
-        "Manoj Dwivedi": "Mathematics – M.Sc, B.Ed",
-        "Manish Mishra": "Physics – B.Sc Biotechnology",
-        "Mohsin Khan": "English",
-        "Kanchan Shukla": "Hindi"
-    },
+    # CLASS MONITORS
+    "monitor of class 5": "Monitor of Class 5 is Abhay Bharti.",
+    "monitor of class 9": "Monitor of Class 9 is Adarsh Agrahari.",
+    "monitor of class 11": "Monitor of Class 11 is Shashi Kapoor.",
 
-    "junior_teachers": [
-        "Harshit Agrahari – Mathematics",
-        "Sunil Sir – Mathematics",
-        "Sehbal Sir – Physical Education",
-        "Priya Maam – English",
-        "Pooja Maam – Science",
-        "Sweta Maam – Sanskrit / Art / Hindi",
-        "Asha Maam",
-        "Laxmi Maam"
-    ],
+    # EXAMS
+    "final exam": "Final exams start from the first week of March.",
+    "class 11 syllabus": "Class 11 syllabus includes full books of Maths, Physics, Chemistry, Biology, Hindi and English with grammar.",
 
-    "non_teaching": {
-        "receptionists": ["Sakshi Maam", "Sadhana Maam"],
-        "peons": 2,
-        "guards": 2
-    },
+    # SCIENCE EXHIBITION
+    "science exhibition date": "Science exhibition will be held on 7 February 2026.",
+    "head of science exhibition": "Head of Science Exhibition 2025–26 is Mr. Kuldeep Kumar.",
 
-    "class_11_fees": {
-        "school_fee": "₹2000 per month",
-        "coaching_fee": "₹2000 per month"
-    },
+    # FACILITIES
+    "computer lab": "The school has a computer lab with more than 15 computers.",
+    "projector": "Projector facility is available for junior classes.",
+    "infrastructure": "The school has AC classrooms, science labs, sports facilities and online classes.",
 
-    "class_11_students_boys": [
-        "Shashi Kapoor", "Prince Bharti", "Raunak Shukla", "Siddharth Srivastav",
-        "Neeraj Kumar", "Aditya Jaiswal", "Anuj Chaubey", "Vicky Agrahari",
-        "Zaid", "Yuvraj Yadav", "Prem Sagar"
-    ],
+    # TRANSPORT
+    "transport": "The school has 3 buses, 4 vans and 1 force vehicle.",
+    "bus routes": "Bus routes include Pathra Road, Beloha Road, Chetiya Road, Supa Road and Kaji Rudhauli Road.",
 
-    "class_11_students_girls": [
-        "Srushti Tripthi", "Sahista Khatoon", "Ishika Singh", "Khushi Agrahari",
-        "Kritika Agrahari", "Khushi Soni", "Saziya Khatoon", "Sristy Bharti",
-        "Aafrin Khan", "Samayara", "Eram", "Rawan Siddique",
-        "Prasansa", "Janvi Singh", "Aditi"
-    ],
+    # ADMISSION
+    "documents required": "Documents required include Birth Certificate, Aadhaar Card, address proof, photos, TC and previous report card.",
 
-    "monitors": {
-        "class 5": "Abhay Bharti",
-        "class 9": "Adarsh Agrahari",
-        "class 11": "Shashi Kapoor"
-    },
+    # HOUSES
+    "house system": "The school has Yellow House, Red House, Blue House and Green House.",
 
-    "science_exhibition": {
-        "date": "7 February 2026",
-        "head": "Mr. Kuldeep Kumar",
-        "supporting_teachers": [
-            "Manoj Sir", "Manish Sir", "Vibha Maam", "Mohsin Sir"
-        ]
-    },
+    # SPORTS
+    "sports": "Sports include Cricket, Kho-Kho, Chess, Carrom, Shuttle Race, Badminton, Volleyball, Hit the Stump and Long Jump.",
+    "best cricket player": "Best cricket and volleyball player of the school is Raj Kapoor.",
 
-    "transport": {
-        "vehicles": "3 Buses, 4 Vans, 1 Force Vehicle",
-        "routes": [
-            "Pathra Road", "Beloha Road", "Chetiya Road",
-            "Supa Road", "Kaji Rudhauli Road"
-        ]
-    },
-
-    "houses": ["Yellow", "Red", "Blue", "Green"],
-
-    "sports": [
-        "Cricket", "Kho-Kho", "Chess", "Carrom", "Badminton",
-        "Volleyball", "Long Jump", "Hit the Stump"
-    ],
-
-    "activities": [
-        "Science Exhibition", "Debate Competition",
-        "Dance Competition", "Educational Tours"
-    ],
-
-    "best_player": "Raj Kapoor",
-
-    "gcs_ai_founders": [
-        "Shashi Kapoor",
-        "Prince Bharti"
-    ]
+    # GCS AI
+    "founder of gcs ai": "Founders of GCS AI are Shashi Kapoor and Prince Bharti."
 }
 
 CONTACT = {
-    "phone_numbers": [
-        "9838421968",
-        "8317001959",
-        "7518249280"
-    ],
-    "message": "Please contact the school or visit the campus for more information."
+    "numbers": "9838421968, 8317001959, 7518249280"
 }
